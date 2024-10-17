@@ -17,19 +17,19 @@ services:
     image: alexmos2/kittygram_backend
     env_file: .env
     volumes:
-      - static:/backend_static
+      - static:/static
       - media:/media
   frontend:
     image: alexmos2/kittygram_frontend  # Качаем с Docker Hub
     env_file: .env
-    command: cp -r /app/build/. /frontend_static/
+    command: cp -r /app/build/. /static/
     volumes:
-      - static:/frontend_static
+      - static:/static
   gateway:
     image: alexmos2/kittygram_gateway  # Качаем с Docker Hub
     env_file: .env
     volumes:
-      - static:/staticfiles
+      - static:/static
       - media:/media
     ports:
       - 9000:80
