@@ -22,7 +22,7 @@ services:
   frontend:
     image: alexmos2/kittygram_frontend  # Качаем с Docker Hub
     env_file: .env
-    command: cp -r /app/build/. /static/
+    # command: cp -r /app/build/. /static/
     volumes:
       - static:/static
   gateway:
