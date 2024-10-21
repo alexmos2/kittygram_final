@@ -128,7 +128,7 @@ jobs:
         with:
           context: ./frontend/
           push: true
-          tags: alexmos2/taski_frontend:latest
+          tags: alexmos2/kittygram_frontend:latest
   build_gateway_and_push_to_docker_hub:
     name: Push gateway Docker image to DockerHub
     runs-on: ubuntu-latest
@@ -148,11 +148,11 @@ jobs:
           context: ./nginx/
           push: true
           # Тут вместо username должен быть ваш логин на Docker Hub
-          tags: alexmos2/taski_gateway:latest
+          tags: alexmos2/kittygram_gateway:latest
   deploy:
     runs-on: ubuntu-latest
     needs: 
-      # Дождёмся билда всех образов Taski
+      # Дождёмся билда всех образов
       - build_and_push_to_docker_hub
       - build_frontend_and_push_to_docker_hub
       - build_gateway_and_push_to_docker_hub
